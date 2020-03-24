@@ -1,0 +1,126 @@
+.sdg-captcha-error {
+  border: 1px solid #f44336;
+  padding: 5px;
+  color: #f44336;
+  line-height: 1;
+  display: inline-block;
+
+  .sdg-captcha {
+    background-color: #f9f9f9;
+    border: 1px solid #d3d3d3;
+    color: #000;
+    height: 74px;
+    width: 300px;
+
+    .checkbox-container {
+      margin: 0 16px;
+
+      .checkbox {
+        background-color: white;
+        border: 2px solid #c1c1c1;
+        cursor: pointer;
+        height: 28px;
+        width: 28px;
+      }
+
+      .done {
+        color: #4caf50;
+        font-size: 32px;
+        height: 32px;
+        width: 32px;
+      }
+    }
+
+    .brand {
+      margin: 0 16px;
+
+      .logo {
+        height: 36px;
+      }
+
+      .brand-text {
+        color: #555;
+        font-size: 10px;
+        margin-top: 5px;
+      }
+
+      .link-text {
+        color: #555;
+        font-size: 8px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.image-selector {
+  background: white;
+  border: 1px solid #d3d3d3;
+  padding: 8px;
+  position: absolute;
+  width: 400px;
+
+  .question {
+    background-color: #2196f3;
+    color: white;
+    line-height: 1;
+    margin-bottom: 8px;
+    padding: 24px;
+
+    .goal {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 4px 0;
+    }
+  }
+
+  .answer {
+    height: 130.67px;
+
+    .image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .error-text {
+    color: #f44336;
+    font-size: 14px;
+    margin: 4px 0;
+    text-align: center;
+  }
+
+  .actions {
+    border-top: 1px solid #d3d3d3;
+    margin-top: 4px;
+    padding: 8px 0 0 0;
+  }
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.selected {
+  transform: scale(0.8);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.page-actions {
+  left: 0;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
