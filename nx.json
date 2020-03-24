@@ -1,0 +1,28 @@
+{
+  "npmScope": "sdg-captcha",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "sdg-captcha": {
+      "tags": []
+    },
+    "sdg-captcha-e2e": {
+      "tags": [],
+      "implicitDependencies": ["sdg-captcha"]
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
+}
