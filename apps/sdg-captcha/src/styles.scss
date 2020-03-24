@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@include mat-core();
+
+$sdg-captcha-primary: mat-palette($mat-indigo);
+$sdg-captcha-accent: mat-palette($mat-pink, A200, A100, A400);
+$sdg-captcha-warn: mat-palette($mat-red);
+$sdg-captcha-theme: mat-light-theme(
+  $sdg-captcha-primary,
+  $sdg-captcha-accent,
+  $sdg-captcha-warn
+);
+
+@include angular-material-theme($sdg-captcha-theme);
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: #555;
+}

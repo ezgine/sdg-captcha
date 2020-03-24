@@ -1,19 +1,25 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import { NestFactory } from '@nestjs/core';
-
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+import * as compression from 'compression';
+import * as helmet from 'helmet';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = process.env.port || 3333;
-  await app.listen(port, () => {
-    console.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+  const PORT = environment.port || 3333;
+  const GLOBAL_PREFIX = 'api';
+
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  app.use(compression());
+  app.use(helmet());
+  app.enableCors();
+
+  app.setGlobalPrefix(GLOBAL_PREFIX);
+
+  await app.listen(PORT, () => {
+    console.log(`Listening at http://localhost:${PORT}/${GLOBAL_PREFIX}`);
   });
 }
 

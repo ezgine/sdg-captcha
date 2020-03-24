@@ -1,8 +1,135 @@
-<div style="text-align:center">
-  <h1>Welcome to sdg-captcha!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
+<div class="sdg-captcha-error">
+  <div class="sdg-captcha" fxLayout="row" fxLayoutAlign="start center">
+    <div class="checkbox-container">
+      <div
+        class="checkbox"
+        *ngIf="!isLoading && !isDone"
+        (click)="isLoading = true"
+      ></div>
+
+      <mat-spinner
+        [diameter]="32"
+        *ngIf="isLoading && !isDone"
+        (click)="isDone = true"
+      ></mat-spinner>
+
+      <!-- IMAGE SELECTOR -->
+      <div class="mat-elevation-z2 image-selector" *ngIf="isLoading">
+        <!-- QUESTION -->
+        <div class="question" fxLayout="column">
+          <span>Select all "UNSDG Targets" of</span>
+          <span class="goal">{{ question | uppercase }}</span>
+          <span>Click verify once there are none left</span>
+        </div>
+        <!-- QUESTION -->
+
+        <!-- ANSWER SETS -->
+        <div
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between"
+          fxLayoutGap="4px"
+        >
+          <div class="answer" fxFlex *ngFor="let answer of answers1">
+            <div
+              class="image"
+              [ngClass]="{
+                grayscale: !isColorsOn,
+                selected: answer.isSelected
+              }"
+              [ngStyle]="{ 'background-image': 'url(' + answer.img + ')' }"
+              (click)="answer.isSelected = !answer.isSelected"
+            ></div>
+          </div>
+        </div>
+        <div
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between"
+          fxLayoutGap="4px"
+        >
+          <div class="answer" fxFlex *ngFor="let answer of answers2">
+            <div
+              class="image"
+              [ngClass]="{
+                grayscale: !isColorsOn,
+                selected: answer.isSelected
+              }"
+              [ngStyle]="{ 'background-image': 'url(' + answer.img + ')' }"
+              (click)="answer.isSelected = !answer.isSelected"
+            ></div>
+          </div>
+        </div>
+        <div
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between"
+          fxLayoutGap="4px"
+        >
+          <div class="answer" fxFlex *ngFor="let answer of answers3">
+            <div
+              class="image"
+              [ngClass]="{
+                grayscale: !isColorsOn,
+                selected: answer.isSelected
+              }"
+              [ngStyle]="{ 'background-image': 'url(' + answer.img + ')' }"
+              (click)="answer.isSelected = !answer.isSelected"
+            ></div>
+          </div>
+        </div>
+        <!-- ANSWER SETS -->
+
+        <!-- ERROR MESSAGE -->
+        <div class="error-text">Please select all matching "Targets".</div>
+        <!-- ERROR MESSAGE -->
+
+        <!-- ACTIONS -->
+        <div class="actions" fxLayout="row">
+          <div>
+            <button mat-icon-button (click)="refresh()">
+              <mat-icon>refresh</mat-icon>
+            </button>
+            <button mat-icon-button (click)="isColorsOn = !isColorsOn">
+              <mat-icon *ngIf="isColorsOn">invert_colors_off</mat-icon>
+              <mat-icon *ngIf="!isColorsOn">invert_colors</mat-icon>
+            </button>
+            <a
+              mat-icon-button
+              href="https://supportbetterworld.org"
+              target="_blank"
+            >
+              <mat-icon>info_outline</mat-icon>
+            </a>
+          </div>
+          <div fxFlex></div>
+          <button mat-flat-button color="primary" (click)="verify()">
+            Verify
+          </button>
+        </div>
+        <!-- ACTIONS -->
+      </div>
+      <!-- IMAGE SELECTOR -->
+
+      <mat-icon
+        class="done"
+        *ngIf="isDone"
+        (click)="isLoading = false; isDone = false"
+      >
+        done
+      </mat-icon>
+    </div>
+
+    <div fxLayout="column">
+      <span>I'm an Active Citizen</span>
+    </div>
+    <div fxFlex></div>
+    <div class="brand" fxLayout="column" fxLayoutAlign="start center">
+      <img class="logo" src="./assets/images/logo.png" />
+
+      <div class="link-text" fxLayout="row">
+        <a href="" style="margin-right: 2px;">Privacy</a>
+        <span>{{ ' - ' }}</span>
+        <a href="" style="margin-left: 2px;">Terms</a>
+      </div>
+    </div>
+  </div>
+  <!-- Please verify that you are an Active Citizen. -->
 </div>
-<div>Message: {{ hello$ | async | json }}</div>

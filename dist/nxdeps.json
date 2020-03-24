@@ -1,0 +1,1268 @@
+{
+  "projectGraph": {
+    "nodes": {
+      "sdg-captcha-e2e": {
+        "name": "sdg-captcha-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/sdg-captcha-e2e",
+          "sourceRoot": "apps/sdg-captcha-e2e/src",
+          "projectType": "application",
+          "architect": {
+            "e2e": {
+              "builder": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/sdg-captcha-e2e/cypress.json",
+                "tsConfig": "apps/sdg-captcha-e2e/tsconfig.e2e.json",
+                "devServerTarget": "sdg-captcha:serve"
+              },
+              "configurations": {
+                "production": {
+                  "devServerTarget": "sdg-captcha:serve:production"
+                }
+              }
+            },
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "apps/sdg-captcha-e2e/tsconfig.e2e.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!apps/sdg-captcha-e2e/**"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/sdg-captcha-e2e/cypress.json",
+              "ext": ".json",
+              "mtime": 1585028490692.954
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/src/fixtures/example.json",
+              "ext": ".json",
+              "mtime": 1585028490693.4858
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/src/integration/app.spec.ts",
+              "ext": ".ts",
+              "mtime": 1585028490693.6807
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/src/plugins/index.js",
+              "ext": ".js",
+              "mtime": 1585028490693.8716
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/src/support/app.po.ts",
+              "ext": ".ts",
+              "mtime": 1585028490694.2427
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/src/support/commands.ts",
+              "ext": ".ts",
+              "mtime": 1585028490694.4092
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/src/support/index.ts",
+              "ext": ".ts",
+              "mtime": 1585028490694.5525
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/tsconfig.e2e.json",
+              "ext": ".json",
+              "mtime": 1585028490693.1145
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1585028490693.251
+            },
+            {
+              "file": "apps/sdg-captcha-e2e/tslint.json",
+              "ext": ".json",
+              "mtime": 1585028490692.7642
+            }
+          ]
+        }
+      },
+      "api-interfaces": {
+        "name": "api-interfaces",
+        "type": "lib",
+        "data": {
+          "root": "libs/api-interfaces",
+          "sourceRoot": "libs/api-interfaces/src",
+          "projectType": "library",
+          "schematics": {},
+          "architect": {
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "libs/api-interfaces/tsconfig.lib.json",
+                  "libs/api-interfaces/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!libs/api-interfaces/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "libs/api-interfaces/jest.config.js",
+                "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/api-interfaces/README.md",
+              "ext": ".md",
+              "mtime": 1585028490697.9414
+            },
+            {
+              "file": "libs/api-interfaces/jest.config.js",
+              "ext": ".js",
+              "mtime": 1585028490699.158
+            },
+            {
+              "file": "libs/api-interfaces/src/index.ts",
+              "ext": ".ts",
+              "mtime": 1585028490698.5823
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/api-interfaces.ts",
+              "ext": ".ts",
+              "mtime": 1585028490698.8484
+            },
+            {
+              "file": "libs/api-interfaces/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1585028490698.0808
+            },
+            {
+              "file": "libs/api-interfaces/tsconfig.lib.json",
+              "ext": ".json",
+              "mtime": 1585028490698.3264
+            },
+            {
+              "file": "libs/api-interfaces/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1585028490699.0059
+            },
+            {
+              "file": "libs/api-interfaces/tslint.json",
+              "ext": ".json",
+              "mtime": 1585028490697.8042
+            }
+          ]
+        }
+      },
+      "sdg-captcha": {
+        "name": "sdg-captcha",
+        "type": "app",
+        "data": {
+          "projectType": "application",
+          "schematics": {
+            "@nrwl/angular:component": {
+              "style": "scss"
+            }
+          },
+          "root": "apps/sdg-captcha",
+          "sourceRoot": "apps/sdg-captcha/src",
+          "prefix": "sdg-captcha",
+          "architect": {
+            "build": {
+              "builder": "@angular-devkit/build-angular:browser",
+              "options": {
+                "outputPath": "dist/apps/sdg-captcha",
+                "index": "apps/sdg-captcha/src/index.html",
+                "main": "apps/sdg-captcha/src/main.ts",
+                "polyfills": "apps/sdg-captcha/src/polyfills.ts",
+                "tsConfig": "apps/sdg-captcha/tsconfig.app.json",
+                "aot": true,
+                "assets": [
+                  "apps/sdg-captcha/src/favicon.ico",
+                  "apps/sdg-captcha/src/assets"
+                ],
+                "styles": [
+                  "apps/sdg-captcha/src/styles.scss"
+                ],
+                "scripts": []
+              },
+              "configurations": {
+                "production": {
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/sdg-captcha/src/environments/environment.ts",
+                      "with": "apps/sdg-captcha/src/environments/environment.prod.ts"
+                    }
+                  ],
+                  "optimization": true,
+                  "outputHashing": "all",
+                  "sourceMap": false,
+                  "extractCss": true,
+                  "namedChunks": false,
+                  "extractLicenses": true,
+                  "vendorChunk": false,
+                  "buildOptimizer": true,
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "2mb",
+                      "maximumError": "5mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "6kb",
+                      "maximumError": "10kb"
+                    }
+                  ]
+                }
+              }
+            },
+            "serve": {
+              "builder": "@angular-devkit/build-angular:dev-server",
+              "options": {
+                "browserTarget": "sdg-captcha:build",
+                "proxyConfig": "apps/sdg-captcha/proxy.conf.json"
+              },
+              "configurations": {
+                "production": {
+                  "browserTarget": "sdg-captcha:build:production"
+                }
+              }
+            },
+            "extract-i18n": {
+              "builder": "@angular-devkit/build-angular:extract-i18n",
+              "options": {
+                "browserTarget": "sdg-captcha:build"
+              }
+            },
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "apps/sdg-captcha/tsconfig.app.json",
+                  "apps/sdg-captcha/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!apps/sdg-captcha/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "apps/sdg-captcha/jest.config.js",
+                "tsConfig": "apps/sdg-captcha/tsconfig.spec.json",
+                "passWithNoTests": true,
+                "setupFile": "apps/sdg-captcha/src/test-setup.ts"
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/sdg-captcha/browserslist",
+              "ext": "",
+              "mtime": 1585028490689.755
+            },
+            {
+              "file": "apps/sdg-captcha/jest.config.js",
+              "ext": ".js",
+              "mtime": 1585028490692.4175
+            },
+            {
+              "file": "apps/sdg-captcha/proxy.conf.json",
+              "ext": ".json",
+              "mtime": 1585028490696.728
+            },
+            {
+              "file": "apps/sdg-captcha/src/app/app.component.html",
+              "ext": ".html",
+              "mtime": 1585031528587.2524
+            },
+            {
+              "file": "apps/sdg-captcha/src/app/app.component.scss",
+              "ext": ".scss",
+              "mtime": 1585031639405.4912
+            },
+            {
+              "file": "apps/sdg-captcha/src/app/app.component.spec.ts",
+              "ext": ".ts",
+              "mtime": 1585028490692.0076
+            },
+            {
+              "file": "apps/sdg-captcha/src/app/app.component.ts",
+              "ext": ".ts",
+              "mtime": 1585028490692.146
+            },
+            {
+              "file": "apps/sdg-captcha/src/app/app.module.ts",
+              "ext": ".ts",
+              "mtime": 1585031060930.2544
+            },
+            {
+              "file": "apps/sdg-captcha/src/assets/.gitkeep",
+              "ext": "",
+              "mtime": 1585028490690.8708
+            },
+            {
+              "file": "apps/sdg-captcha/src/environments/environment.prod.ts",
+              "ext": ".ts",
+              "mtime": 1585028490691.054
+            },
+            {
+              "file": "apps/sdg-captcha/src/environments/environment.ts",
+              "ext": ".ts",
+              "mtime": 1585028490691.1982
+            },
+            {
+              "file": "apps/sdg-captcha/src/favicon.ico",
+              "ext": ".ico",
+              "mtime": 1585028490689.6094
+            },
+            {
+              "file": "apps/sdg-captcha/src/index.html",
+              "ext": ".html",
+              "mtime": 1585030618927.0579
+            },
+            {
+              "file": "apps/sdg-captcha/src/main.ts",
+              "ext": ".ts",
+              "mtime": 1585028490690.453
+            },
+            {
+              "file": "apps/sdg-captcha/src/polyfills.ts",
+              "ext": ".ts",
+              "mtime": 1585028490690.5854
+            },
+            {
+              "file": "apps/sdg-captcha/src/styles.scss",
+              "ext": ".scss",
+              "mtime": 1585030618925.8108
+            },
+            {
+              "file": "apps/sdg-captcha/src/test-setup.ts",
+              "ext": ".ts",
+              "mtime": 1585028490692.5527
+            },
+            {
+              "file": "apps/sdg-captcha/tsconfig.app.json",
+              "ext": ".json",
+              "mtime": 1585028490689.8865
+            },
+            {
+              "file": "apps/sdg-captcha/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1585028490689.3728
+            },
+            {
+              "file": "apps/sdg-captcha/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1585028490692.2822
+            },
+            {
+              "file": "apps/sdg-captcha/tslint.json",
+              "ext": ".json",
+              "mtime": 1585028490690.0159
+            }
+          ]
+        }
+      },
+      "api": {
+        "name": "api",
+        "type": "app",
+        "data": {
+          "root": "apps/api",
+          "sourceRoot": "apps/api/src",
+          "projectType": "application",
+          "prefix": "api",
+          "schematics": {},
+          "architect": {
+            "build": {
+              "builder": "@nrwl/node:build",
+              "options": {
+                "outputPath": "dist/apps/api",
+                "main": "apps/api/src/main.ts",
+                "tsConfig": "apps/api/tsconfig.app.json",
+                "assets": [
+                  "apps/api/src/assets"
+                ]
+              },
+              "configurations": {
+                "production": {
+                  "optimization": true,
+                  "extractLicenses": true,
+                  "inspect": false,
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/api/src/environments/environment.ts",
+                      "with": "apps/api/src/environments/environment.prod.ts"
+                    }
+                  ]
+                }
+              }
+            },
+            "serve": {
+              "builder": "@nrwl/node:execute",
+              "options": {
+                "buildTarget": "api:build"
+              }
+            },
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "apps/api/tsconfig.app.json",
+                  "apps/api/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!apps/api/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "apps/api/jest.config.js",
+                "tsConfig": "apps/api/tsconfig.spec.json",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/api/jest.config.js",
+              "ext": ".js",
+              "mtime": 1585028490696.587
+            },
+            {
+              "file": "apps/api/src/app/.gitkeep",
+              "ext": "",
+              "mtime": 1585028490695.7793
+            },
+            {
+              "file": "apps/api/src/app/app.controller.spec.ts",
+              "ext": ".ts",
+              "mtime": 1585028490696.8616
+            },
+            {
+              "file": "apps/api/src/app/app.controller.ts",
+              "ext": ".ts",
+              "mtime": 1585028490697.0735
+            },
+            {
+              "file": "apps/api/src/app/app.module.ts",
+              "ext": ".ts",
+              "mtime": 1585028490697.2617
+            },
+            {
+              "file": "apps/api/src/app/app.service.spec.ts",
+              "ext": ".ts",
+              "mtime": 1585028490697.4124
+            },
+            {
+              "file": "apps/api/src/app/app.service.ts",
+              "ext": ".ts",
+              "mtime": 1585028490697.5674
+            },
+            {
+              "file": "apps/api/src/assets/.gitkeep",
+              "ext": "",
+              "mtime": 1585028490695.9507
+            },
+            {
+              "file": "apps/api/src/environments/environment.prod.ts",
+              "ext": ".ts",
+              "mtime": 1585028490696.147
+            },
+            {
+              "file": "apps/api/src/environments/environment.ts",
+              "ext": ".ts",
+              "mtime": 1585028490696.3015
+            },
+            {
+              "file": "apps/api/src/main.ts",
+              "ext": ".ts",
+              "mtime": 1585028490695.5967
+            },
+            {
+              "file": "apps/api/tsconfig.app.json",
+              "ext": ".json",
+              "mtime": 1585028490694.901
+            },
+            {
+              "file": "apps/api/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1585028490695.26
+            },
+            {
+              "file": "apps/api/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1585028490696.4456
+            },
+            {
+              "file": "apps/api/tslint.json",
+              "ext": ".json",
+              "mtime": 1585028490694.7578
+            }
+          ]
+        }
+      },
+      "@angular/animations": {
+        "type": "npm",
+        "name": "@angular/animations",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular/cdk": {
+        "type": "npm",
+        "name": "@angular/cdk",
+        "data": {
+          "version": "^9.1.3",
+          "files": []
+        }
+      },
+      "@angular/common": {
+        "type": "npm",
+        "name": "@angular/common",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular/compiler": {
+        "type": "npm",
+        "name": "@angular/compiler",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular/core": {
+        "type": "npm",
+        "name": "@angular/core",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular/flex-layout": {
+        "type": "npm",
+        "name": "@angular/flex-layout",
+        "data": {
+          "version": "^9.0.0-beta.29",
+          "files": []
+        }
+      },
+      "@angular/forms": {
+        "type": "npm",
+        "name": "@angular/forms",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular/material": {
+        "type": "npm",
+        "name": "@angular/material",
+        "data": {
+          "version": "^9.1.3",
+          "files": []
+        }
+      },
+      "@angular/platform-browser": {
+        "type": "npm",
+        "name": "@angular/platform-browser",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular/platform-browser-dynamic": {
+        "type": "npm",
+        "name": "@angular/platform-browser-dynamic",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular/router": {
+        "type": "npm",
+        "name": "@angular/router",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@nestjs/common": {
+        "type": "npm",
+        "name": "@nestjs/common",
+        "data": {
+          "version": "^6.8.3",
+          "files": []
+        }
+      },
+      "@nestjs/core": {
+        "type": "npm",
+        "name": "@nestjs/core",
+        "data": {
+          "version": "^6.8.3",
+          "files": []
+        }
+      },
+      "@nestjs/platform-express": {
+        "type": "npm",
+        "name": "@nestjs/platform-express",
+        "data": {
+          "version": "^6.8.3",
+          "files": []
+        }
+      },
+      "@nrwl/angular": {
+        "type": "npm",
+        "name": "@nrwl/angular",
+        "data": {
+          "version": "9.1.2",
+          "files": []
+        }
+      },
+      "core-js": {
+        "type": "npm",
+        "name": "core-js",
+        "data": {
+          "version": "^2.5.4",
+          "files": []
+        }
+      },
+      "reflect-metadata": {
+        "type": "npm",
+        "name": "reflect-metadata",
+        "data": {
+          "version": "^0.1.13",
+          "files": []
+        }
+      },
+      "rxjs": {
+        "type": "npm",
+        "name": "rxjs",
+        "data": {
+          "version": "~6.5.0",
+          "files": []
+        }
+      },
+      "zone.js": {
+        "type": "npm",
+        "name": "zone.js",
+        "data": {
+          "version": "^0.10.2",
+          "files": []
+        }
+      },
+      "@angular/cli": {
+        "type": "npm",
+        "name": "@angular/cli",
+        "data": {
+          "version": "9.0.1",
+          "files": []
+        }
+      },
+      "@nrwl/workspace": {
+        "type": "npm",
+        "name": "@nrwl/workspace",
+        "data": {
+          "version": "9.1.2",
+          "files": []
+        }
+      },
+      "@types/node": {
+        "type": "npm",
+        "name": "@types/node",
+        "data": {
+          "version": "~8.9.4",
+          "files": []
+        }
+      },
+      "dotenv": {
+        "type": "npm",
+        "name": "dotenv",
+        "data": {
+          "version": "6.2.0",
+          "files": []
+        }
+      },
+      "ts-node": {
+        "type": "npm",
+        "name": "ts-node",
+        "data": {
+          "version": "~7.0.0",
+          "files": []
+        }
+      },
+      "tslint": {
+        "type": "npm",
+        "name": "tslint",
+        "data": {
+          "version": "~6.0.0",
+          "files": []
+        }
+      },
+      "eslint": {
+        "type": "npm",
+        "name": "eslint",
+        "data": {
+          "version": "6.8.0",
+          "files": []
+        }
+      },
+      "typescript": {
+        "type": "npm",
+        "name": "typescript",
+        "data": {
+          "version": "~3.7.4",
+          "files": []
+        }
+      },
+      "prettier": {
+        "type": "npm",
+        "name": "prettier",
+        "data": {
+          "version": "1.19.1",
+          "files": []
+        }
+      },
+      "@nrwl/nest": {
+        "type": "npm",
+        "name": "@nrwl/nest",
+        "data": {
+          "version": "9.1.2",
+          "files": []
+        }
+      },
+      "@angular/compiler-cli": {
+        "type": "npm",
+        "name": "@angular/compiler-cli",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular/language-service": {
+        "type": "npm",
+        "name": "@angular/language-service",
+        "data": {
+          "version": "9.0.0",
+          "files": []
+        }
+      },
+      "@angular-devkit/build-angular": {
+        "type": "npm",
+        "name": "@angular-devkit/build-angular",
+        "data": {
+          "version": "0.900.1",
+          "files": []
+        }
+      },
+      "codelyzer": {
+        "type": "npm",
+        "name": "codelyzer",
+        "data": {
+          "version": "~5.0.1",
+          "files": []
+        }
+      },
+      "jest-preset-angular": {
+        "type": "npm",
+        "name": "jest-preset-angular",
+        "data": {
+          "version": "8.0.0",
+          "files": []
+        }
+      },
+      "@nrwl/jest": {
+        "type": "npm",
+        "name": "@nrwl/jest",
+        "data": {
+          "version": "9.1.2",
+          "files": []
+        }
+      },
+      "jest": {
+        "type": "npm",
+        "name": "jest",
+        "data": {
+          "version": "24.9.0",
+          "files": []
+        }
+      },
+      "@types/jest": {
+        "type": "npm",
+        "name": "@types/jest",
+        "data": {
+          "version": "24.9.1",
+          "files": []
+        }
+      },
+      "ts-jest": {
+        "type": "npm",
+        "name": "ts-jest",
+        "data": {
+          "version": "24.0.0",
+          "files": []
+        }
+      },
+      "cypress": {
+        "type": "npm",
+        "name": "cypress",
+        "data": {
+          "version": "^4.1.0",
+          "files": []
+        }
+      },
+      "@nrwl/cypress": {
+        "type": "npm",
+        "name": "@nrwl/cypress",
+        "data": {
+          "version": "9.1.2",
+          "files": []
+        }
+      },
+      "@nrwl/node": {
+        "type": "npm",
+        "name": "@nrwl/node",
+        "data": {
+          "version": "9.1.2",
+          "files": []
+        }
+      },
+      "@nestjs/schematics": {
+        "type": "npm",
+        "name": "@nestjs/schematics",
+        "data": {
+          "version": "^6.7.0",
+          "files": []
+        }
+      },
+      "@nestjs/testing": {
+        "type": "npm",
+        "name": "@nestjs/testing",
+        "data": {
+          "version": "^6.8.3",
+          "files": []
+        }
+      }
+    },
+    "dependencies": {
+      "sdg-captcha-e2e": [
+        {
+          "type": "implicit",
+          "source": "sdg-captcha-e2e",
+          "target": "sdg-captcha"
+        }
+      ],
+      "api-interfaces": [],
+      "sdg-captcha": [
+        {
+          "type": "static",
+          "source": "sdg-captcha",
+          "target": "api-interfaces"
+        },
+        {
+          "type": "static",
+          "source": "sdg-captcha",
+          "target": "@angular/core"
+        },
+        {
+          "type": "static",
+          "source": "sdg-captcha",
+          "target": "@angular/common"
+        },
+        {
+          "type": "static",
+          "source": "sdg-captcha",
+          "target": "@angular/platform-browser"
+        },
+        {
+          "type": "static",
+          "source": "sdg-captcha",
+          "target": "@angular/material"
+        },
+        {
+          "type": "static",
+          "source": "sdg-captcha",
+          "target": "@angular/platform-browser-dynamic"
+        },
+        {
+          "type": "static",
+          "source": "sdg-captcha",
+          "target": "zone.js"
+        },
+        {
+          "type": "static",
+          "source": "sdg-captcha",
+          "target": "jest-preset-angular"
+        }
+      ],
+      "api": [
+        {
+          "type": "static",
+          "source": "api",
+          "target": "api-interfaces"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/testing"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/common"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/core"
+        }
+      ],
+      "@angular/animations": [],
+      "@angular/cdk": [],
+      "@angular/common": [],
+      "@angular/compiler": [],
+      "@angular/core": [],
+      "@angular/flex-layout": [],
+      "@angular/forms": [],
+      "@angular/material": [],
+      "@angular/platform-browser": [],
+      "@angular/platform-browser-dynamic": [],
+      "@angular/router": [],
+      "@nestjs/common": [],
+      "@nestjs/core": [],
+      "@nestjs/platform-express": [],
+      "@nrwl/angular": [],
+      "core-js": [],
+      "reflect-metadata": [],
+      "rxjs": [],
+      "zone.js": [],
+      "@angular/cli": [],
+      "@nrwl/workspace": [],
+      "@types/node": [],
+      "dotenv": [],
+      "ts-node": [],
+      "tslint": [],
+      "eslint": [],
+      "typescript": [],
+      "prettier": [],
+      "@nrwl/nest": [],
+      "@angular/compiler-cli": [],
+      "@angular/language-service": [],
+      "@angular-devkit/build-angular": [],
+      "codelyzer": [],
+      "jest-preset-angular": [],
+      "@nrwl/jest": [],
+      "jest": [],
+      "@types/jest": [],
+      "ts-jest": [],
+      "cypress": [],
+      "@nrwl/cypress": [],
+      "@nrwl/node": [],
+      "@nestjs/schematics": [],
+      "@nestjs/testing": []
+    }
+  },
+  "fileMap": {
+    "sdg-captcha-e2e": [
+      {
+        "file": "apps/sdg-captcha-e2e/cypress.json",
+        "ext": ".json",
+        "mtime": 1585028490692.954
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/src/fixtures/example.json",
+        "ext": ".json",
+        "mtime": 1585028490693.4858
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/src/integration/app.spec.ts",
+        "ext": ".ts",
+        "mtime": 1585028490693.6807
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/src/plugins/index.js",
+        "ext": ".js",
+        "mtime": 1585028490693.8716
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/src/support/app.po.ts",
+        "ext": ".ts",
+        "mtime": 1585028490694.2427
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/src/support/commands.ts",
+        "ext": ".ts",
+        "mtime": 1585028490694.4092
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/src/support/index.ts",
+        "ext": ".ts",
+        "mtime": 1585028490694.5525
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/tsconfig.e2e.json",
+        "ext": ".json",
+        "mtime": 1585028490693.1145
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1585028490693.251
+      },
+      {
+        "file": "apps/sdg-captcha-e2e/tslint.json",
+        "ext": ".json",
+        "mtime": 1585028490692.7642
+      }
+    ],
+    "api-interfaces": [
+      {
+        "file": "libs/api-interfaces/README.md",
+        "ext": ".md",
+        "mtime": 1585028490697.9414
+      },
+      {
+        "file": "libs/api-interfaces/jest.config.js",
+        "ext": ".js",
+        "mtime": 1585028490699.158
+      },
+      {
+        "file": "libs/api-interfaces/src/index.ts",
+        "ext": ".ts",
+        "mtime": 1585028490698.5823
+      },
+      {
+        "file": "libs/api-interfaces/src/lib/api-interfaces.ts",
+        "ext": ".ts",
+        "mtime": 1585028490698.8484
+      },
+      {
+        "file": "libs/api-interfaces/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1585028490698.0808
+      },
+      {
+        "file": "libs/api-interfaces/tsconfig.lib.json",
+        "ext": ".json",
+        "mtime": 1585028490698.3264
+      },
+      {
+        "file": "libs/api-interfaces/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1585028490699.0059
+      },
+      {
+        "file": "libs/api-interfaces/tslint.json",
+        "ext": ".json",
+        "mtime": 1585028490697.8042
+      }
+    ],
+    "sdg-captcha": [
+      {
+        "file": "apps/sdg-captcha/browserslist",
+        "ext": "",
+        "mtime": 1585028490689.755
+      },
+      {
+        "file": "apps/sdg-captcha/jest.config.js",
+        "ext": ".js",
+        "mtime": 1585028490692.4175
+      },
+      {
+        "file": "apps/sdg-captcha/proxy.conf.json",
+        "ext": ".json",
+        "mtime": 1585028490696.728
+      },
+      {
+        "file": "apps/sdg-captcha/src/app/app.component.html",
+        "ext": ".html",
+        "mtime": 1585031528587.2524
+      },
+      {
+        "file": "apps/sdg-captcha/src/app/app.component.scss",
+        "ext": ".scss",
+        "mtime": 1585031639405.4912
+      },
+      {
+        "file": "apps/sdg-captcha/src/app/app.component.spec.ts",
+        "ext": ".ts",
+        "mtime": 1585028490692.0076
+      },
+      {
+        "file": "apps/sdg-captcha/src/app/app.component.ts",
+        "ext": ".ts",
+        "mtime": 1585028490692.146
+      },
+      {
+        "file": "apps/sdg-captcha/src/app/app.module.ts",
+        "ext": ".ts",
+        "mtime": 1585031060930.2544
+      },
+      {
+        "file": "apps/sdg-captcha/src/assets/.gitkeep",
+        "ext": "",
+        "mtime": 1585028490690.8708
+      },
+      {
+        "file": "apps/sdg-captcha/src/environments/environment.prod.ts",
+        "ext": ".ts",
+        "mtime": 1585028490691.054
+      },
+      {
+        "file": "apps/sdg-captcha/src/environments/environment.ts",
+        "ext": ".ts",
+        "mtime": 1585028490691.1982
+      },
+      {
+        "file": "apps/sdg-captcha/src/favicon.ico",
+        "ext": ".ico",
+        "mtime": 1585028490689.6094
+      },
+      {
+        "file": "apps/sdg-captcha/src/index.html",
+        "ext": ".html",
+        "mtime": 1585030618927.0579
+      },
+      {
+        "file": "apps/sdg-captcha/src/main.ts",
+        "ext": ".ts",
+        "mtime": 1585028490690.453
+      },
+      {
+        "file": "apps/sdg-captcha/src/polyfills.ts",
+        "ext": ".ts",
+        "mtime": 1585028490690.5854
+      },
+      {
+        "file": "apps/sdg-captcha/src/styles.scss",
+        "ext": ".scss",
+        "mtime": 1585030618925.8108
+      },
+      {
+        "file": "apps/sdg-captcha/src/test-setup.ts",
+        "ext": ".ts",
+        "mtime": 1585028490692.5527
+      },
+      {
+        "file": "apps/sdg-captcha/tsconfig.app.json",
+        "ext": ".json",
+        "mtime": 1585028490689.8865
+      },
+      {
+        "file": "apps/sdg-captcha/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1585028490689.3728
+      },
+      {
+        "file": "apps/sdg-captcha/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1585028490692.2822
+      },
+      {
+        "file": "apps/sdg-captcha/tslint.json",
+        "ext": ".json",
+        "mtime": 1585028490690.0159
+      }
+    ],
+    "api": [
+      {
+        "file": "apps/api/jest.config.js",
+        "ext": ".js",
+        "mtime": 1585028490696.587
+      },
+      {
+        "file": "apps/api/src/app/.gitkeep",
+        "ext": "",
+        "mtime": 1585028490695.7793
+      },
+      {
+        "file": "apps/api/src/app/app.controller.spec.ts",
+        "ext": ".ts",
+        "mtime": 1585028490696.8616
+      },
+      {
+        "file": "apps/api/src/app/app.controller.ts",
+        "ext": ".ts",
+        "mtime": 1585028490697.0735
+      },
+      {
+        "file": "apps/api/src/app/app.module.ts",
+        "ext": ".ts",
+        "mtime": 1585028490697.2617
+      },
+      {
+        "file": "apps/api/src/app/app.service.spec.ts",
+        "ext": ".ts",
+        "mtime": 1585028490697.4124
+      },
+      {
+        "file": "apps/api/src/app/app.service.ts",
+        "ext": ".ts",
+        "mtime": 1585028490697.5674
+      },
+      {
+        "file": "apps/api/src/assets/.gitkeep",
+        "ext": "",
+        "mtime": 1585028490695.9507
+      },
+      {
+        "file": "apps/api/src/environments/environment.prod.ts",
+        "ext": ".ts",
+        "mtime": 1585028490696.147
+      },
+      {
+        "file": "apps/api/src/environments/environment.ts",
+        "ext": ".ts",
+        "mtime": 1585028490696.3015
+      },
+      {
+        "file": "apps/api/src/main.ts",
+        "ext": ".ts",
+        "mtime": 1585028490695.5967
+      },
+      {
+        "file": "apps/api/tsconfig.app.json",
+        "ext": ".json",
+        "mtime": 1585028490694.901
+      },
+      {
+        "file": "apps/api/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1585028490695.26
+      },
+      {
+        "file": "apps/api/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1585028490696.4456
+      },
+      {
+        "file": "apps/api/tslint.json",
+        "ext": ".json",
+        "mtime": 1585028490694.7578
+      }
+    ]
+  }
+}
