@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
